@@ -376,7 +376,7 @@ function MobileFeatureItem({
   isLast,
 }: {
   feature: (typeof features)[0];
-  scrollProgress: ReturnType<typeof useTransform>;
+  scrollProgress: MotionValue<number>;
   start: number;
   mid: number;
   end: number;
