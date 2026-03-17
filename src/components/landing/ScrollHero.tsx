@@ -9,38 +9,38 @@ import homeScreenImg from "@/assets/home_screen.png";
 
 /* ─── Bubble data: positions as % from center of viewport ─── */
 const bubbles = [
-  { text: "¿Qué cocino hoy?", emoji: "🤔", left: "4%", top: "18%" },
-  { text: "¿Qué me falta en el súper?", emoji: "🛒", right: "4%", top: "15%" },
-  { text: "¿Qué desayuno?", emoji: "🥞", left: "3%", top: "48%" },
-  { text: "¿Algo rápido para cenar?", emoji: "⏱️", right: "3%", top: "52%" },
-  { text: "¿Qué hago con lo que tengo?", emoji: "🥕", left: "6%", top: "78%" },
-  { text: "No sé qué comprar", emoji: "😩", right: "6%", top: "80%" },
+  { text: "¿Qué me falta en el súper?", emoji: "🛒", left: "4%", top: "18%" },
+  { text: "Siempre olvido algo", emoji: "😩", right: "4%", top: "15%" },
+  { text: "¿Cuánto voy a gastar?", emoji: "💸", left: "3%", top: "48%" },
+  { text: "No sé qué comprar", emoji: "🤷", right: "3%", top: "52%" },
+  { text: "La lista está en otro lado", emoji: "📝", left: "6%", top: "78%" },
+  { text: "¿Qué necesito para la cena?", emoji: "🍽️", right: "6%", top: "80%" },
 ];
 
 const features = [
   {
-    title: "Recetas generadas con IA",
+    title: "Genera recetas y arma tu lista al instante",
     description:
-      "Describe lo que quieres comer o los ingredientes que tienes, y la IA crea recetas perfectas para ti. Personaliza porciones, restricciones alimentarias y más.",
+      "Dile a la IA qué quieres cocinar y genera la receta completa. Los ingredientes se agregan automáticamente a tu lista de compras — sin pensar, sin olvidar nada.",
     img: aiGeneratorImg,
-    alt: "Pantalla de generador de recetas con IA de Don Cheffy",
-    emoji: "🤖",
+    alt: "Generador de recetas con IA que arma tu lista de compras",
+    emoji: "⚡",
   },
   {
-    title: "Tu lista de compras, automática",
+    title: "Tu lista de compras, organizada y sin esfuerzo",
     description:
-      "Agrega recetas y Don Cheffy construye tu lista de compras automáticamente. Los ingredientes se agrupan por categoría y puedes tacharlos mientras compras.",
+      "Todos los ingredientes agrupados por categoría, listos para tachar mientras compras. Agrega varias recetas y la lista se actualiza sola. Nunca más olvides algo en el súper.",
     img: shoppingListImg,
-    alt: "Pantalla de lista de compras inteligente de Don Cheffy",
-    emoji: "🛒",
+    alt: "Lista de compras inteligente organizada por categoría",
+    emoji: "✅",
   },
   {
-    title: "Organiza tus comidas por categoría",
+    title: "Planifica tu semana en minutos",
     description:
-      "Desayunos, almuerzos, cenas, postres... todo organizado para que encuentres inspiración al instante. Explora recetas por tipo de comida.",
+      "Organiza desayunos, almuerzos y cenas por categoría. Planifica toda la semana de un vistazo y genera la lista de compras completa con un solo toque.",
     img: homeScreenImg,
-    alt: "Pantalla principal de Don Cheffy con categorías de comida",
-    emoji: "📂",
+    alt: "Planificador semanal de comidas con categorías",
+    emoji: "📋",
   },
 ];
 
@@ -160,13 +160,13 @@ const ScrollHero = () => {
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-6">
-                Cocina sin complicaciones.{" "}
-                <span className="text-primary">Don Cheffy</span> lo resuelve.
+                Tu súper resuelto.{" "}
+                <span className="text-primary">Don Cheffy</span> lo organiza.
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-                La IA genera recetas personalizadas y arma tu lista de compras
-                automáticamente. Deja de improvisar y empieza a disfrutar.
+                Genera recetas con IA y tu lista de compras se arma sola.
+                Deja de improvisar en el súper y ahorra tiempo cada semana.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
