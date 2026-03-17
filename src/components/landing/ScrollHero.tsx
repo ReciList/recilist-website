@@ -229,9 +229,11 @@ const ScrollHero = () => {
             </div>
 
             {/* Mobile: phone centered, text below */}
-            <div className="lg:hidden flex flex-col items-center gap-6">
-              <PhoneWithScroll imageIndex={imageIndex} />
-              <div className="relative min-h-[120px] w-full text-center">
+            <div className="lg:hidden flex flex-col items-center gap-4 pt-8">
+              <div className="scale-[0.85]">
+                <PhoneWithScroll imageIndex={imageIndex} />
+              </div>
+              <div className="relative min-h-[140px] w-full text-center">
                 <MobileFeatureText scrollProgress={scrollYProgress} />
               </div>
             </div>
@@ -344,10 +346,11 @@ function MobileFeatureItem({
   );
 
   return (
-    <motion.div style={{ opacity }} className="absolute inset-0 flex flex-col justify-center items-center">
-      <span className="text-2xl mb-2">{feature.emoji}</span>
-      <h3 className="font-display text-xl font-bold text-foreground mb-2">{feature.title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{feature.description}</p>
+    <motion.div style={{ opacity }} className="absolute inset-0 flex flex-col justify-start items-center">
+      <h3 className="font-display text-lg font-bold text-foreground mb-1">
+        <span className="mr-1.5">{feature.emoji}</span>{feature.title}
+      </h3>
+      <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">{feature.description}</p>
     </motion.div>
   );
 }
