@@ -284,8 +284,8 @@ function PhoneWithScroll({
   scrollProgress,
   imageIndex,
 }: {
-  scrollProgress: ReturnType<typeof useTransform>;
-  imageIndex: ReturnType<typeof useTransform>;
+  scrollProgress: MotionValue<number>;
+  imageIndex: MotionValue<number>;
 }) {
   const images = [aiGeneratorImg, shoppingListImg, homeScreenImg];
   const alts = [
