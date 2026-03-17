@@ -90,7 +90,7 @@ function FeaturePanel({
 }: {
   feature: (typeof features)[0];
   index: number;
-  scrollProgress: ReturnType<typeof useTransform>;
+  scrollProgress: MotionValue<number>;
 }) {
   const totalFeatures = features.length;
   const featureStart = 0.2 + (index / totalFeatures) * 0.65;
