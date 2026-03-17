@@ -346,10 +346,11 @@ function MobileFeatureItem({
   );
 
   return (
-    <motion.div style={{ opacity }} className="absolute inset-0 flex flex-col justify-center items-center">
-      <span className="text-2xl mb-2">{feature.emoji}</span>
-      <h3 className="font-display text-xl font-bold text-foreground mb-2">{feature.title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{feature.description}</p>
+    <motion.div style={{ opacity }} className="absolute inset-0 flex flex-col justify-start items-center">
+      <h3 className="font-display text-lg font-bold text-foreground mb-1">
+        <span className="mr-1.5">{feature.emoji}</span>{feature.title}
+      </h3>
+      <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">{feature.description}</p>
     </motion.div>
   );
 }
