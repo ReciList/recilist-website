@@ -32,7 +32,7 @@ const Navbar = () => {
             <Globe className="h-4 w-4" />
             {lang === "en" ? "ES" : "EN"}
           </button>
-          <Button onClick={() => scrollTo("waitlist")} size="sm" className="rounded-full px-6">
+          <Button onClick={() => scrollTo("download")} size="sm" className="rounded-full px-6">
             {t.nav.join[lang]}
           </Button>
         </div>
