@@ -3,7 +3,7 @@ import ScrollHero from "@/components/landing/ScrollHero";
 import ProblemSection from "@/components/landing/ProblemSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import AboutSection from "@/components/landing/AboutSection";
-import WaitlistSection from "@/components/landing/WaitlistSection";
+import DownloadSection from "@/components/landing/DownloadSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => (
