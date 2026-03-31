@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoImg from "@/assets/logo.png";
 
 const Footer = () => {
   const { lang, t } = useLanguage();
