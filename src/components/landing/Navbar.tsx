@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ReciListLogo from "./ReciListLogo";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
