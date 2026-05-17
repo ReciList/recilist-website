@@ -15,29 +15,29 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#5FD38D] backdrop-blur-lg border-b border-[#5FD38D]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <button onClick={() => scrollTo("hero")} className="flex items-center">
-          <img src={logoImg} alt="ReciList" className="h-9 w-auto" />
+          <img src={logoImg} alt="ReciList" className="h-9 w-auto brightness-0 invert" />
         </button>
 
         <div className="hidden md:flex items-center gap-8">
-          <button onClick={() => scrollTo("features")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.nav.features[lang]}</button>
-          <button onClick={() => scrollTo("how-it-works")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.nav.howItWorks[lang]}</button>
-          <button onClick={() => scrollTo("about")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t.nav.about[lang]}</button>
+          <button onClick={() => scrollTo("features")} className="text-sm text-white/90 hover:text-white transition-colors">{t.nav.features[lang]}</button>
+          <button onClick={() => scrollTo("how-it-works")} className="text-sm text-white/90 hover:text-white transition-colors">{t.nav.howItWorks[lang]}</button>
+          <button onClick={() => scrollTo("about")} className="text-sm text-white/90 hover:text-white transition-colors">{t.nav.about[lang]}</button>
           <button
             onClick={toggleLang}
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-1.5 text-sm text-white/90 hover:text-white transition-colors"
           >
             <Globe className="h-4 w-4" />
             {lang === "en" ? "ES" : "EN"}
           </button>
-          <Button onClick={() => scrollTo("download")} size="sm" className="rounded-full px-6">
+          <Button onClick={() => scrollTo("download")} size="sm" variant="secondary" className="rounded-full px-6 bg-white text-[#5FD38D] hover:bg-white/90">
             {t.nav.join[lang]}
           </Button>
         </div>
 
-        <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className="md:hidden text-white" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -48,16 +48,16 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-background border-b border-border"
+            className="md:hidden overflow-hidden bg-[#5FD38D] border-b border-[#5FD38D]"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
-              <button onClick={() => scrollTo("features")} className="text-left text-muted-foreground hover:text-foreground">{t.nav.features[lang]}</button>
-              <button onClick={() => scrollTo("how-it-works")} className="text-left text-muted-foreground hover:text-foreground">{t.nav.howItWorks[lang]}</button>
-              <button onClick={() => scrollTo("about")} className="text-left text-muted-foreground hover:text-foreground">{t.nav.about[lang]}</button>
-              <button onClick={toggleLang} className="text-left text-muted-foreground hover:text-foreground flex items-center gap-1.5">
+              <button onClick={() => scrollTo("features")} className="text-left text-white/90 hover:text-white">{t.nav.features[lang]}</button>
+              <button onClick={() => scrollTo("how-it-works")} className="text-left text-white/90 hover:text-white">{t.nav.howItWorks[lang]}</button>
+              <button onClick={() => scrollTo("about")} className="text-left text-white/90 hover:text-white">{t.nav.about[lang]}</button>
+              <button onClick={toggleLang} className="text-left text-white/90 hover:text-white flex items-center gap-1.5">
                 <Globe className="h-4 w-4" /> {lang === "en" ? "Español" : "English"}
               </button>
-              <Button onClick={() => scrollTo("download")} className="rounded-full w-full">{t.nav.join[lang]}</Button>
+              <Button onClick={() => scrollTo("download")} variant="secondary" className="rounded-full w-full bg-white text-[#5FD38D] hover:bg-white/90">{t.nav.join[lang]}</Button>
             </div>
           </motion.div>
         )}
