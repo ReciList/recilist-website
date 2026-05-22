@@ -1,25 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Instagram, Camera, Link2, Sparkles } from "lucide-react";
+import { Instagram, Link2, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const icons = [Instagram, Camera, Link2, Sparkles];
-const recipeVideos = [
-  {
-    src: "/videos/recilist-instagram-recipe.mov",
-    scaleClass: "scale-[1.58] lg:scale-[1.72] xl:scale-[1.62]",
-  },
-  null,
-  {
-    src: "/videos/recilist-url-recipe.mov",
-    scaleClass: "scale-[1.58] lg:scale-[1.72] xl:scale-[1.62]",
-  },
-  { src: "/videos/recilist-ai-recipe.mp4" },
+const icons = [Instagram, Link2, Sparkles];
+
+const recipeVideos: (string | null)[] = [
+  "/videos/recilist-instagram-recipe.mov",
+  "/videos/recilist-url-recipe.mov",
+  "/videos/recilist-ai-recipe.mp4",
 ];
 
 const AiRecipesSection = () => {
   const { lang, t } = useLanguage();
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
   const demos = t.aiRecipes.cards.map((card, index) => ({
     card,
     Icon: icons[index],
@@ -27,52 +20,35 @@ const AiRecipesSection = () => {
   }));
 
   return (
-    <section id="ai-recipes" className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <section id="ai-recipes" className="bg-white py-20 sm:py-28 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mx-auto mb-14 max-w-2xl text-center sm:mb-16"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mx-auto mb-16 max-w-2xl text-center sm:mb-20"
         >
-          <h2 className="font-display text-3xl sm:text-5xl font-bold text-foreground mb-5">
+          <h2 className="font-display text-3xl font-bold leading-tight text-foreground sm:text-5xl">
             {t.aiRecipes.title[lang]}
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
             {t.aiRecipes.text[lang]}
           </p>
         </motion.div>
 
-        {isDesktop ? (
-          <div className="grid grid-cols-4 items-start gap-6">
-            {demos.map((demo, index) => (
-              <FeatureDemo
-                key={demo.card.title.es}
-                title={demo.card.title[lang]}
-                placeholder={demo.card.placeholder[lang]}
-                video={demo.video}
-                Icon={demo.Icon}
-                index={index}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="-mx-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="flex snap-x snap-mandatory gap-6">
-              {demos.map((demo, index) => (
-                <FeatureDemo
-                  key={demo.card.title.es}
-                  title={demo.card.title[lang]}
-                  placeholder={demo.card.placeholder[lang]}
-                  video={demo.video}
-                  Icon={demo.Icon}
-                  index={index}
-                  className="min-w-[82vw] max-w-[360px] snap-center"
-                />
-              ))}
-            </div>
-          </div>
-        )}
+        <div className="grid grid-cols-1 gap-16 sm:gap-20 lg:grid-cols-3 lg:gap-10">
+          {demos.map((demo, index) => (
+            <FeatureDemo
+              key={demo.card.title.es}
+              title={demo.card.title[lang]}
+              subtitle={demo.card.subtitle?.[lang] ?? ""}
+              placeholder={demo.card.placeholder[lang]}
+              video={demo.video}
+              Icon={demo.Icon}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -80,43 +56,42 @@ const AiRecipesSection = () => {
 
 interface FeatureDemoProps {
   title: string;
+  subtitle: string;
   placeholder: string;
-  video: { src: string; scaleClass?: string } | null;
+  video: string | null;
   Icon: typeof Instagram;
   index: number;
-  className?: string;
 }
 
-const FeatureDemo = ({ title, placeholder, video, Icon, index, className }: FeatureDemoProps) => (
+const FeatureDemo = ({ title, subtitle, placeholder, video, Icon, index }: FeatureDemoProps) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-60px" }}
-    transition={{ delay: index * 0.08, duration: 0.5 }}
-    className={`flex flex-col items-center ${className ?? ""}`.trim()}
+    transition={{ delay: index * 0.1, duration: 0.55 }}
+    className="flex flex-col items-center text-center"
   >
-    <div className="mb-6 flex min-h-[64px] items-center justify-center gap-3 text-center">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-        <Icon className="h-5 w-5" />
-      </div>
-
-      <h3 className="font-display text-xl font-bold leading-tight text-foreground lg:text-lg xl:text-xl">
-        {title}
-      </h3>
-    </div>
-
-    <div className="flex h-[590px] w-full items-start justify-center overflow-visible lg:h-[620px]">
+    <div className="flex h-[60vh] max-h-[640px] min-h-[420px] w-full items-center justify-center">
       {video ? (
-        <ManagedVideo
-          className="h-auto max-h-[76vh] w-full max-w-[340px] origin-top object-contain lg:max-h-[620px] lg:max-w-[280px] xl:max-w-[310px]"
-          scaleClass={video.scaleClass}
-          src={video.src}
-          label={placeholder}
-        />
+        <ManagedVideo src={video} label={placeholder} />
       ) : (
-        <div className="flex h-[580px] w-full max-w-[300px] items-center justify-center rounded-[2rem] border border-dashed border-border bg-muted/20 px-6 text-center text-sm leading-relaxed text-muted-foreground lg:h-[560px] lg:max-w-[260px] xl:h-[610px] xl:max-w-[290px]">
+        <div className="flex h-full w-full max-w-[280px] items-center justify-center px-6 text-center text-sm leading-relaxed text-muted-foreground">
           {placeholder}
         </div>
+      )}
+    </div>
+
+    <div className="mt-6 flex flex-col items-center gap-3">
+      <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <Icon className="h-5 w-5" />
+      </div>
+      <h3 className="font-display text-xl font-bold leading-tight text-foreground sm:text-2xl">
+        {title}
+      </h3>
+      {subtitle && (
+        <p className="max-w-[26ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
+          {subtitle}
+        </p>
       )}
     </div>
   </motion.div>
@@ -125,11 +100,9 @@ const FeatureDemo = ({ title, placeholder, video, Icon, index, className }: Feat
 interface ManagedVideoProps {
   src: string;
   label: string;
-  className?: string;
-  scaleClass?: string;
 }
 
-const ManagedVideo = ({ src, label, className, scaleClass }: ManagedVideoProps) => {
+const ManagedVideo = ({ src, label }: ManagedVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -158,7 +131,7 @@ const ManagedVideo = ({ src, label, className, scaleClass }: ManagedVideoProps) 
   return (
     <video
       ref={videoRef}
-      className={`${className ?? ""} ${scaleClass ?? ""}`.trim()}
+      className="h-full w-auto max-w-full object-contain [mix-blend-mode:multiply]"
       src={src}
       muted
       loop
@@ -167,26 +140,6 @@ const ManagedVideo = ({ src, label, className, scaleClass }: ManagedVideoProps) 
       aria-label={label}
     />
   );
-};
-
-const useMediaQuery = (query: string) => {
-  const [matches, setMatches] = useState(() => {
-    if (typeof window === "undefined") return false;
-
-    return window.matchMedia(query).matches;
-  });
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(query);
-    const updateMatches = () => setMatches(mediaQuery.matches);
-
-    updateMatches();
-    mediaQuery.addEventListener("change", updateMatches);
-
-    return () => mediaQuery.removeEventListener("change", updateMatches);
-  }, [query]);
-
-  return matches;
 };
 
 export default AiRecipesSection;
