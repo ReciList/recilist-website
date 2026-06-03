@@ -51,10 +51,11 @@ const ShoppingListSection = () => {
               ref={videoRef}
               className="h-[60vh] max-h-[640px] min-h-[420px] w-auto max-w-full object-contain"
               src="/videos/recilist-shopping-list.mp4"
+              autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
               aria-label={t.shoppingList.placeholder[lang]}
             />
           </div>

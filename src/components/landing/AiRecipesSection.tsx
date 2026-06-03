@@ -125,12 +125,13 @@ const ManagedVideo = ({ src, label }: ManagedVideoProps) => {
   return (
     <video
       ref={videoRef}
-      className="h-full w-auto max-w-full object-contain [mix-blend-mode:multiply]"
+      className="h-full w-auto max-w-full object-contain"
       src={src}
+      autoPlay
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="auto"
       aria-label={label}
     />
   );
