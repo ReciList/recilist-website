@@ -34,7 +34,7 @@ const DownloadSection = () => {
                 <div className="w-40 h-40 bg-muted rounded-xl flex items-center justify-center">
                   <div className="text-center">
                     <Apple className="h-8 w-8 mx-auto mb-2 text-foreground" />
-                    <span className="text-xs text-muted-foreground">QR Placeholder</span>
+                    <span className="text-xs text-muted-foreground">QR</span>
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@ const DownloadSection = () => {
                 <div className="w-40 h-40 bg-muted rounded-xl flex items-center justify-center">
                   <div className="text-center">
                     <Smartphone className="h-8 w-8 mx-auto mb-2 text-foreground" />
-                    <span className="text-xs text-muted-foreground">QR Placeholder</span>
+                    <span className="text-xs text-muted-foreground">QR</span>
                   </div>
                 </div>
               </div>
