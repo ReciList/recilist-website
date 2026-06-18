@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const bubbleData = [
-  { emoji: "🛒", left: "4%", top: "20%" },
-  { emoji: "😩", right: "4%", top: "16%" },
-  { emoji: "💸", left: "3%", top: "60%" },
-  { emoji: "🤷", right: "3%", top: "64%" },
+  { emoji: "🛒", left: "2%", top: "15%" },
+  { emoji: "😩", right: "2%", top: "13%" },
+  { emoji: "💸", left: "2%", top: "60%" },
+  { emoji: "🤷", right: "2%", top: "64%" },
 ];
 
 const ScrollHero = () => {
@@ -28,7 +28,7 @@ const ScrollHero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4 + i * 0.12, duration: 0.5 }}
-          className="absolute hidden lg:flex items-center gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-full px-4 py-2.5 shadow-lg pointer-events-none"
+          className="absolute hidden xl:flex items-center gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-full px-4 py-2.5 shadow-lg pointer-events-none"
           style={{ top: b.top, left: b.left, right: b.right } as React.CSSProperties}
         >
           <span className="text-lg">{b.emoji}</span>
@@ -48,7 +48,7 @@ const ScrollHero = () => {
             {t.hero.badge[lang]}
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-extrabold text-foreground leading-[1.1] tracking-tight mb-6">
             {t.hero.title[lang]}
           </h1>
 
