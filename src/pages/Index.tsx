@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import ScrollHero from "@/components/landing/ScrollHero";
 import AiRecipesSection from "@/components/landing/AiRecipesSection";
@@ -8,19 +10,36 @@ import PricingSection from "@/components/landing/PricingSection";
 import DownloadSection from "@/components/landing/DownloadSection";
 import Footer from "@/components/landing/Footer";
 
-const Index = () => (
-  <div className="min-h-screen">
-    <Navbar />
-    <ScrollHero />
-    <AiRecipesSection />
-    <ShoppingListSection />
-    <NutritionSection />
-    <ProblemSection />
-    <PricingSection />
-    <DownloadSection />
-    <Footer />
-  </div>
-);
+const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        const timer = setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [location.hash]);
+
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <ScrollHero />
+      <AiRecipesSection />
+      <ShoppingListSection />
+      <NutritionSection />
+      <ProblemSection />
+      <PricingSection />
+      <DownloadSection />
+      <Footer />
+    </div>
+  );
+};
 
 export default Index;
 

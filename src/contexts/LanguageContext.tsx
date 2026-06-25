@@ -131,8 +131,25 @@ const translations = {
     playStore: { en: "Google Play", es: "Google Play" },
     scanLabel: { en: "Scan to download", es: "Escaneá para descargar" },
   },
+  support: {
+    title: { en: "Customer Support", es: "Soporte al Cliente" },
+    subtitle: { en: "We are here to help you. Send us an email and we will get back to you as soon as possible.", es: "Estamos para ayudarte. Envianos un mail y te responderemos a la brevedad." },
+    emailLabel: { en: "Email us at", es: "Escribinos a" },
+    copyEmail: { en: "Copy Email", es: "Copiar Correo" },
+    copied: { en: "Copied!", es: "¡Copiado!" },
+    sendEmail: { en: "Send Email", es: "Enviar Correo" },
+    backHome: { en: "Back to Home", es: "Volver al Inicio" },
+    faqTitle: { en: "Frequently Asked Questions", es: "Preguntas Frecuentes" },
+    faq1Q: { en: "How do I import a recipe?", es: "¿Cómo importo una receta?" },
+    faq1A: { en: "You can import recipes using our AI by sharing an Instagram post, pasting a website URL, or simply describing the recipe in free text.", es: "Podés importar recetas usando nuestra IA compartiendo un post de Instagram, pegando una URL de un sitio web, o simplemente describiendo la receta en texto libre." },
+    faq2Q: { en: "Is my shopping list updated automatically?", es: "¿Mi lista de compras se actualiza sola?" },
+    faq2A: { en: "Yes! When you add recipes or change the number of servings, all ingredients are aggregated and organized by category automatically.", es: "¡Sí! Al agregar recetas o cambiar la cantidad de porciones, todos los ingredientes se unifican y organizan por categoría automáticamente." },
+    faq3Q: { en: "Where can I download the app?", es: "¿Desde dónde puedo descargar la app?" },
+    faq3A: { en: "You can download ReciList for iOS from the App Store and for Android from Google Play. Scan the QR codes in the download section.", es: "Podés descargar ReciList para iOS desde la App Store y para Android desde Google Play. Escaneá los códigos QR en la sección de descarga." }
+  },
   footer: {
     rights: { en: "All rights reserved.", es: "Todos los derechos reservados." },
+    support: { en: "Customer Support", es: "Soporte al Cliente" },
   },
 } as const;
 

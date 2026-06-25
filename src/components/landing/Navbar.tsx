@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logoImg from "@/assets/logo-white.svg";
@@ -8,9 +9,15 @@ import logoImg from "@/assets/logo-white.svg";
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { lang, toggleLang, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname !== "/") {
+      navigate(`/#${id}`);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
     setMobileOpen(false);
   };
 

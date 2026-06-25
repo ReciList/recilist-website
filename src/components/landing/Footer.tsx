@@ -1,11 +1,18 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logoImg from "@/assets/logo-white.svg";
 
 const Footer = () => {
   const { lang, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToHero = () => {
-    document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname !== "/") {
+      navigate("/#hero");
+    } else {
+      document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -18,9 +25,14 @@ const Footer = () => {
               ReciList
             </span>
           </button>
-          <p className="text-sm text-white/80">
-            © {new Date().getFullYear()} ReciList. {t.footer.rights[lang]}
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+            <Link to="/support" className="text-sm text-white/80 hover:text-white transition-colors">
+              {t.footer.support[lang]}
+            </Link>
+            <p className="text-sm text-white/80">
+              © {new Date().getFullYear()} ReciList. {t.footer.rights[lang]}
+            </p>
+          </div>
         </div>
       </div>
     </footer>
